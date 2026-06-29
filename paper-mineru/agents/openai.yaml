@@ -1,0 +1,6 @@
+interface:
+  display_name: "Paper MinerU"
+  short_description: "PDF 重命名、MinerU 配置与解析调度"
+  default_prompt: "Use $paper-mineru to prepare PDFs, configure MinerU, and generate parsing commands."
+policy:
+  allow_implicit_invocation: true
