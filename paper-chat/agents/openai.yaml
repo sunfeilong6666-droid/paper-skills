@@ -1,6 +1,0 @@
-interface:
-  display_name: "Paper Chat"
-  short_description: "训练用户阅读人格并指导 study 修正"
-  default_prompt: "Use $paper-chat to discuss study gaps, learn my reading judgment, and guide papers-study revisions."
-policy:
-  allow_implicit_invocation: true
