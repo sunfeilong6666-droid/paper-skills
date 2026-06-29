@@ -1,4 +1,4 @@
----
+﻿---
 name: paper-mineru
 description: PDF 文献解析准备与 MinerU 调度 skill。用于复制和重命名 PDF、配置 MinerU、生成解析命令、处理本地模型代理绕过、记录 GPU/模型/虚拟环境设置，并把解析输出放入 .paper_ai/knowledge/01mineru/。触发词包括：paper-mineru、MinerU、解析 PDF、运行 MinerU、学习这个 PDF 文件夹、PDF 重命名、生成 MinerU 命令。
 ---
@@ -113,6 +113,25 @@ mineru -p ".paper_ai/knowledge/00papers" -o ".paper_ai/knowledge/01mineru" -m au
 
 将最终命令写入 `.paper_ai/config/mineru_config.md`。Windows CMD 配置下，可以在项目根目录生成 `run_mineru.bat`，但生成后仍需等待用户确认运行。
 
+## 已知问题：localhost 健康检查超时
+
+如果 MinerU 日志显示本地 `mineru-api` 已启动，例如 `Started local mineru-api at http://127.0.0.1:<port>`，但随后报错 `Timed out waiting for local mineru-api to become healthy`，优先判断为代理/VPN 接管了本机端口或 localhost 流量。
+
+解决顺序：
+
+1. 不要删除输出目录或批量清理文件。
+2. 检查 `.paper_ai/knowledge/01mineru/` 是否已有 Markdown；没有产物时才重试。
+3. 在同一个 shell 进程中显式设置 localhost 代理绕过后重跑：
+
+```powershell
+$env:NO_PROXY="localhost,127.0.0.1,::1"
+$env:no_proxy="localhost,127.0.0.1,::1"
+conda run -n <ENV_NAME> mineru -p ".paper_ai\knowledge\00papers" -o ".paper_ai\knowledge\01mineru" -m auto -b pipeline -f true -t true
+```
+
+4. 如果 `vlm-engine` 因本地 API 健康检查失败，可先用 `pipeline` 后端产出可学习 Markdown；不要为了追求高精度而阻塞 `papers-study`。
+5. 把失败日志、代理判断、最终成功命令写入 `.paper_ai/config/mineru_config.md`。
+
 ## 完成条件
 
 当用户告知 MinerU 已完成时：
@@ -130,3 +149,4 @@ mineru -p ".paper_ai/knowledge/00papers" -o ".paper_ai/knowledge/01mineru" -m au
 - 不要在用户未明确同意时运行 MinerU。
 - 不要覆盖原始 PDF。
 - 不要把很长的原始文件名直接交给 MinerU。
+
