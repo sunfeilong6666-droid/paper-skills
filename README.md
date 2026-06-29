@@ -34,6 +34,16 @@ AI 不替你读论文，而是跟着你学怎么读论文。
 1. **本地部署 MinerU** — PDF 解析工具，详见 [MinerU](https://github.com/opendatalab/mineru)
 2. **nature-skills** — 学术写作技能，详见 [nature-skills](https://github.com/Yuan1z0825/nature-skills)
 
+## 快速使用
+1. 创建一个文件夹A（名称自定义）
+2. 创建一个子文件夹B（名称自定义）
+3. 将所有pdf放入B中
+4. 调用paper-ai，如：/paper-ai 学习文献，路径为XXX/B(绝对或相对路径)
+5. 根据提示输入MinerU的信息（默认用MinerU解析，若未部署，则让ai跳过MinerU解析，直接读取pdf）
+6. .paper_ai/knowledge/02breakdown记录了ai的阅读结果、.paper_ai/knowledge/03terminology记录了专业术语
+7. 调用paper-ai修正，如：/paper-ai xxx应该xxx（也可以附上自己的文献学习笔记）
+
+
 ## 几句话
 
 时至今日，已有蒸馏人物特征的 nuwa-skill、迭代进化的 darwin-skill、nature 写作风格的 nature-skills。但是由 AI 完成符合个人特点的科研任务仍存在困难：
@@ -44,6 +54,12 @@ AI 不替你读论文，而是跟着你学怎么读论文。
 
 因此本小白脑子一热，想构建具有人物特质的 AI 代理人，paper-skills 应运而生。
 
-受限于本人的水平能力与时间，skills 仍有许多不足：不同的模型会产生不同的阅读结果、图与表的弱解读、写作板块亟待完善等。本想完善之后再开源，但转念一想，一个万能的 paper-skill 本身就需要千千万万个人共同来完成。
+受限于本人的水平能力与时间，skills 仍有许多不足：
+- **模型差异**：不同的模型会产生不同的阅读结果
+- **图表**：图与表的弱解读
+- **写作**：不同的用户paper-memory不同，最后的写作结果有很大的差异（或许可以借用大佬的memory）
 
+本想完善之后再开源，但转念一想，paper-skill 本身就是在与用户交流之中不断进步的。一千个人的眼中有一千个哈姆雷特，我也同样希望这个一般般的paper-skills可以成为属于用户自己的了不起的paper-skills。
+由衷感谢nuwa-skill的作者，借鉴了nuwa-skill的逻辑，paper-memory也能实现“热插拔”，可以供不同的用户互相交流，只需要交换.paper_ai/profile即可。
+最后祝愿初入科研的同学们，希望这个skill可以与你们共同学习、共同进步。
 为此，本人于 2026 年 6 月 29 日开源 paper-skills，希望能为广大才俊们提供本人微不足道的思路。
