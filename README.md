@@ -56,7 +56,7 @@
 - **图表**：图与表的弱解读
 - **写作**：不同的用户paper-memory不同，最后的写作结果有很大的差异（或许可以借用大佬的memory）
 
-本想完善之后再开源，但转念一想，paper-skill 本身就是在与用户交流之中不断进步的。一千个人的眼中有一千个哈姆雷特，我也同样希望这个一般般的paper-skills可以成为属于用户自己的了不起的paper-skills。
+本想完善之后再开源，但转念一想，paper-skill 本身就是在与用户交流之中不断进步的。一千个人的眼中有一千个哈姆雷特，我也希望这个一般般的paper-skills可以成为属于用户自己的了不起的paper-skills。
 
 由衷感谢nuwa-skill的作者，借鉴了nuwa-skill的逻辑，paper-memory也能实现“热插拔”，可以供不同的用户互相交流，只需要交换.paper_ai/profile即可。
 
