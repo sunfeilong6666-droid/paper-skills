@@ -125,6 +125,30 @@ mineru -p "<项目根目录>/.paper_ai/knowledge/00papers" -o "<项目根目录>
 
 将最终命令写入 `<项目根目录>/.paper_ai/config/mineru_config.md`。Windows CMD 配置下，可以在项目根目录生成 `run_mineru.bat`，但生成后仍需等待用户确认运行。
 
+## 后台运行 MinerU
+
+当用户明确要求运行 MinerU 时，优先使用 Claude 的 Bash 工具后台运行，而非生成 bat 脚本。后台运行的优势：
+- 用户无需手动操作 bat 文件
+- Claude 可以实时监控进度
+- 用户可以随时询问进度
+- 完成后系统自动通知
+
+执行方式：
+
+```bash
+cd "<项目根目录>" && "<MINERU_FULL_PATH>" -p ".paper_ai/knowledge/00papers" -o ".paper_ai/knowledge/01mineru" -m auto -b vlm-engine --image-analysis true 2>&1
+```
+
+使用 Bash 工具的 `run_in_background: true` 参数启动后台任务。任务启动后：
+1. 记录返回的 task ID
+2. 告知用户任务已启动及预计时间
+3. 用户询问进度时，使用 TaskOutput 工具检查状态
+
+进度查询方式：
+- 用户问"进度如何""跑完了吗"时，调用 TaskOutput(task_id, block=false) 获取当前输出
+- 读取输出文件展示已处理的文件数和当前状态
+- 任务完成时，系统会发送 `<task-notification>` 通知
+
 ## 已知问题：localhost 健康检查超时
 
 如果 MinerU 日志显示本地 `mineru-api` 已启动，例如 `Started local mineru-api at http://127.0.0.1:<port>`，但随后报错 `Timed out waiting for local mineru-api to become healthy`，优先判断为代理/VPN 接管了本机端口或 localhost 流量。
