@@ -1,6 +1,6 @@
 interface:
   display_name: "Paper AI"
-  short_description: "文献学习、术语积累与写作总入口"
-  default_prompt: "Use $paper-ai to learn papers, discuss study gaps, update terminology, and draft from the literature system."
+  short_description: "文献系统总入口与模型调度"
+  default_prompt: "Use $paper-ai to route paper learning, memory correction, terminology, retrieval, and writing workflows."
 policy:
   allow_implicit_invocation: true
