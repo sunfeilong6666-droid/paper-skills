@@ -34,6 +34,15 @@ AI 不替你读论文，而是跟着你学怎么读论文。
 1. **本地部署 MinerU** — PDF 解析工具，详见 [MinerU](https://github.com/opendatalab/mineru)
 2. **nature-skills** — 学术写作技能，详见 [nature-skills](https://github.com/Yuan1z0825/nature-skills)
 
+## 快速使用
+1. 只需要调用paper-ai进行交互，包括：学习xxxx、复习xxx、我认为你需要xxxx。它会迭代分析你当前的需求
+2. 想要了解文章输出了什么东西、在哪里浏览，可以之间询问ai
+
+**tips**：最佳使用体验
+1. 用户根据自己的喜好，尽量完善且全面的做一份阅读笔记交给paper-ai分析你的阅读习惯。
+2. 再调用paper-ai分析与你的阅读笔记相同的文献。
+3. 用户进行二次矫正。即可省去大量的投喂过程。
+
 ## 几句话
 
 时至今日，已有蒸馏人物特征的 nuwa-skill、迭代进化的 darwin-skill、nature 写作风格的 nature-skills。但是由 AI 完成符合个人特点的科研任务仍存在困难：
