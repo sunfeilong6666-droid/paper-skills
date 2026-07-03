@@ -1,4 +1,4 @@
-# Paper AI - 可塑型科研论文学习与写作SKILLS
+# Paper-skills - 可塑型科研论文学习与写作SKILLS
 
 
 ## 这是什么
