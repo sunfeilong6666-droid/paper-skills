@@ -18,7 +18,7 @@
 | `paper-mineru` | 将本地 PDF 论文转为 Markdown 格式，供 AI 阅读 |
 | `paper-study` | 单篇论文的积累学习，建立文献知识库和专业术语库 |
 | `paper-memory` | 记录用户的阅读习惯和判断偏好，指导 `paper-study` 修正学习方向 |
-| `nature-writing` | 基于知识库和用户偏好进行学术写作 |
+| `nature-writing` | 基于知识库和用户偏好进行学术写作（https://github.com/Yuan1z0825/nature-skills） |
 
 ## 工作流程
 
