@@ -1,4 +1,4 @@
----
+﻿---
 name: paper-mineru
 description: PDF 文献解析准备与 MinerU 调度 skill。用于复制和重命名 PDF、配置 MinerU、生成解析命令、处理本地模型代理绕过、记录 GPU/模型/虚拟环境设置，并把解析输出放入 项目根目录下的 .paper_ai/knowledge/01mineru/。触发词包括：paper-mineru、MinerU、解析 PDF、运行 MinerU、学习这个 PDF 文件夹、PDF 重命名、生成 MinerU 命令。
 ---
@@ -124,8 +124,6 @@ mineru -p "<项目根目录>\paper_ai\knowledge\00papers" -o "<项目根目录>\
 
 列举需要删除的文件夹绝对路径，随后暂停，向用户请求授权删除文件夹的权限以及确认解析情况。**此授权位于最高级别**
 
-确认解析完成后，将`.paper_ai/knowledge/01mineru`子文件夹名称改为映射文件中对应的文件名称。**默认用户授权，不需要询问**
-
 **检查**
 查看映射文件的文件名全部更改成功，没有遗漏后，删除 `.paper_ai/knowledge/00papers/`和`.paper_ai/knowledge/00test/`
 
@@ -138,6 +136,7 @@ mineru -p "<项目根目录>\paper_ai\knowledge\00papers" -o "<项目根目录>\
 - 不要更新 .paper_ai/knowledge/02breakdown/ 或 03terminology/。
 - 不要覆盖原始 PDF。
 - 不要把很长的原始文件名直接交给 MinerU。
+
 
 
 
