@@ -1,6 +1,7 @@
 interface:
   display_name: "Paper Study"
-  short_description: "完整文献内容库与术语索引"
-  default_prompt: "Use $paper-study to build complete structured paper breakdowns, terminology, retrieval indexes, and memory-guided revisions."
+  short_description: "结构化文献 study、术语库和检索索引"
+  default_prompt: "Use $paper-study only when routed by paper-ai to build or revise study assets from MinerU outputs."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
+

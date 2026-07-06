@@ -1,6 +1,7 @@
 interface:
   display_name: "Paper Memory"
-  short_description: "科研阅读偏好蒸馏与修正指导"
-  default_prompt: "Use $paper-memory to distill user paper-reading and writing preferences from corrections, then generate guidance for paper-study."
+  short_description: "科研项目事实、阅读偏好和写作偏好记录"
+  default_prompt: "Use $paper-memory only when routed by paper-ai or when explicitly recording/distilling research memory."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
+
