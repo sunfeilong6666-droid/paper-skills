@@ -62,7 +62,7 @@ references/runtime-contract.md
 3. 判断文件状态，有且只有三个状态：
    - 未复制/未有 MinerU 输出：进入 step 011。
    - 已有 MinerU 输出：将需要学习的，mineru解析后的md文件的绝对路径逐行写入 `study_wait.txt`，禁止 step 011，进入 step 012。
-   - 状态不清：先向用户说明缺少什么信息，不自行猜测。
+   - 已有 MinerU 输出，已有study输出：默认为复习，将需要学习的，mineru解析后的md文件的绝对路径逐行写入 `restudy_wait.txt`，禁止 step 011，进入 step 013。
 
 ### step 011：未解析
 
@@ -116,7 +116,41 @@ references/runtime-contract.md
 
 8. 如果上下文、时间或模型状态不足以继续保持单篇精读质量，停止批处理，保留未完成列表，不得伪装完成。
 
-9. 学习结束后，删除 `study_wait.txt`，只能删除这一个明确文件；不得批量清理目录。
+9. 学习结束后，删除 `study_wait.txt`中学习完的文献路径，只能删除这一个明确文件；不得批量清理目录。
+
+### step 012：复习文献
+
+1. 逐行读取：
+
+```text
+<项目根目录>/.paper_ai/knowledge/00test/restudy_wait.txt
+```
+
+2. 每篇文章必须使用独立子 agent 调用 `paper-study`。
+
+3. 主 agent 发送给子 agent 的命令格式：
+
+```text
+/paper-study 学习这篇文章，路径为 <绝对路径>,输出的内容不得覆盖原有内容，在原有的文件底部添加此次学习的内容。
+```
+
+4. 子 agent 完成后，只向主 agent 返回：
+   - 文章已学习结束；
+   - 原文件路径；
+   - study 输出路径；
+   - 术语库是否更新；
+   - 检索索引是否更新；
+   - 失败原因，如有。
+
+5. 主 agent 记录结果后，结束该子 agent 上下文，再启动下一篇。
+
+6. 不得把多篇文章合并给同一个子 agent 精读。
+
+7. 不得因队列很长而改成略读、批量总结或降低模板覆盖范围。
+
+8. 如果上下文、时间或模型状态不足以继续保持单篇精读质量，停止批处理，保留未完成列表，不得伪装完成。
+
+9. 学习结束后，删除 `restudy_wait.txt`中学习完的文献路径，只能删除这一个明确文件；不得批量清理目录。
 
 ## path 02：讨论和纠正路径
 
@@ -203,7 +237,7 @@ references/runtime-contract.md
 
 ## Memory Capture Gate
 
-只要用户反馈属于可复用阅读、写作、术语、证据边界或科研判断习惯，就调用 `paper-memory` capture。
+除用户明确要求不记忆之外，每次调用paper-ai时，都要调用 `paper-memory` capture
 
 包括但不限于：
 
@@ -216,17 +250,4 @@ references/runtime-contract.md
 - 对 AI 反模式的纠正。
 
 不得把一次性事实修正误写成长期习惯。
-
-## 完成检查
-
-每次任务结束前检查：
-
-- 是否确认项目根目录。
-- 是否使用同一个 `.paper_ai/` 运行结构。
-- 是否调度了正确 skill。
-- 学习任务是否生成 study、术语库和检索索引。
-- 纠正任务是否先证据判断，再 memory capture。
-- 写作反馈是否判断过是否需要 memory capture。
-
-
 
