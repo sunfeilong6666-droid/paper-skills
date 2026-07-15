@@ -36,7 +36,7 @@
 3. 将所有pdf放入B中
 4. 调用paper-ai，如：/paper-ai 学习文献，路径为XXX/B(绝对或相对路径)
 5. 根据提示输入MinerU的信息（默认用MinerU解析，若未部署，则让ai跳过MinerU解析，直接读取pdf）
-6. .paper_ai/knowledge/02breakdown记录了ai的阅读结果、.paper_ai/knowledge/03terminology记录了专业术语
+6. .paper_ai/03study/breakdown记录了ai的阅读结果、.paper_ai/03study/terminology记录了专业术语
 7. 调用paper-ai修正，如：/paper-ai xxx应该xxx（也可以附上自己的文献学习笔记）
 
 
@@ -63,7 +63,7 @@
 。
 本想完善之后再开源，但转念一想，paper-skill 本身就是在与用户交流之中不断进步的。一千个人的眼中有一千个哈姆雷特，我也希望这个一般般的paper-skills可以成为属于用户自己的了不起的paper-skills。
 
-由衷感谢nuwa-skill的作者，借鉴了nuwa-skill的逻辑，paper-memory也能实现“热插拔”，可以供不同的用户互相交流，只需要交换.paper_ai/profile即可。
+由衷感谢nuwa-skill的作者，借鉴了nuwa-skill的逻辑，paper-memory也能实现“热插拔”，可以供不同的用户互相交流，只需要交换.paper_ai/02memory/profile即可。
 
 最后祝愿初入科研的同学们，希望这个skill可以与你们共同学习、共同进步。
 
