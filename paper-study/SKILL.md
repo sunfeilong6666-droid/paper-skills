@@ -34,13 +34,22 @@ references/study-output-template.md
 
 ## 读取 memory
 
-学习时读取：
+学习时采用分层读取，避免 `read.md` 随长期积累挤占论文正文上下文。
+
+默认完整读取：
+
+```text
+<项目根目录>/.paper_ai/02memory/profile/skill.md
+```
+
+按当前论文主题、方法和证据需求检索相关条目，不默认全文读取：
 
 ```text
 <项目根目录>/.paper_ai/02memory/project/project.md
 <项目根目录>/.paper_ai/02memory/profile/read.md
-<项目根目录>/.paper_ai/02memory/profile/skill.md
 ```
+
+检索 `read.md` 时，优先使用论文类型、研究对象、组学方法、功能预测工具、氮循环/珊瑚胁迫/微生物组等关键词定位相关偏好；只把命中的条目和必要上下文带入正式精读。
 
 默认不读取：
 
@@ -48,7 +57,7 @@ references/study-output-template.md
 <项目根目录>/.paper_ai/02memory/profile/candidate.md
 ```
 
-除非用户正在测试候选规律。
+除非用户正在测试候选规律、审查 candidate，或明确要求按候选规律试运行。
 
 ## 输出目录
 

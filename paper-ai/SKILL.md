@@ -223,14 +223,25 @@ references/runtime-contract.md
 
 1. 确认项目根目录和 `.paper_ai/` 运行结构。
 2. 检查 `nature-writing` 是否可用。
-3. 读取：
+3. 分层读取写作材料，避免 `write.md` 和全量 study 随长期积累挤占正文上下文：
+
+默认完整读取：
+
+```text
+<项目根目录>/.paper_ai/02memory/profile/skill.md
+```
+
+按当前写作任务、章节、主题、引用需求和关键词检索相关条目，不默认全文读取：
 
 ```text
 <项目根目录>/.paper_ai/03study/
 <项目根目录>/.paper_ai/02memory/project/project.md
 <项目根目录>/.paper_ai/02memory/profile/write.md
-<项目根目录>/.paper_ai/02memory/profile/skill.md
 ```
+
+检索 `write.md` 时，优先按任务类型定位相关偏好，例如 Results、Discussion、Introduction、Methods、figure legend、Word 编辑、统计表达、术语强度、引用组织和结论强度。
+
+检索 `.paper_ai/03study/` 时，只带入当前章节或论点需要的 study 片段、证据标签、术语和引用线索；不得把全量 study 目录一次性塞入上下文。
 
 4. 调用 `nature-writing` 完成写作。
 5. 如果用户对写作提出可复用反馈，调用 `paper-memory` capture。
